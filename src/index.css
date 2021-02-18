@@ -1,0 +1,87 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  text-transform: capitalize;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  background-color: #ecedef;
+  /* background-image: url(./images/bg.jpg);
+  background-position: center;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size: 100%; */
+  text-align: center;
+  margin: auto;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-family: cursive;
+  color: #d3c0a8;
+}
+
+form {
+  background-color: #edeef0;
+  padding: 10px;
+}
+
+input {
+  padding: 10px 40px;
+  border: none;
+  border-bottom: 2px solid #5e7850;
+  border-right: 2px solid #5e7850;
+}
+
+form button {
+  padding: 10px 30px;
+  border: 1px solid transparent;
+
+  color: #5e7850;
+  transition: background 0.5s;
+  font-weight: bold;
+}
+
+form button:hover {
+  color: #fff;
+  background: green;
+  border-right: 1px solid green;
+  border-bottom: 1px solid green;
+}
+
+.my-list {
+  color: rgb(80, 78, 78);
+  text-align: center;
+  margin-top: 40px;
+  margin: auto;
+  line-height: 40px;
+  min-height: 300px;
+}
+
+ul li {
+  font-family: cursive;
+  list-style-type: none;
+}
+
+.is-completed {
+  color: green;
+}
+
+div > button {
+  padding: 10px 20px;
+  color: #c19d6f;
+  background-color: rgba(94, 120, 80, 0.8);
+  border: 0;
+  transition: background 0.5s;
+  font-weight: bold;
+  width: 100%;
+  margin: auto;
+}
+
+div > button:hover {
+  background-color: transparent;
+  border: 1px solid green;
+}
