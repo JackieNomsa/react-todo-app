@@ -66,6 +66,7 @@ form button:hover {
 ul li {
   font-family: cursive;
   list-style-type: none;
+  text-transform: uppercase;
 }
 
 .clear-all {
@@ -107,5 +108,6 @@ ul li {
 }
 
 .item-completed {
-  color: green;
+  color: rgb(165, 170, 165);
+  text-decoration: line-through;
 }

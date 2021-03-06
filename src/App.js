@@ -1,12 +1,15 @@
 import { useState, useRef, useEffect } from "react";
-import { AiFillCheckCircle, AiFillCloseCircle } from "react-icons/ai";
+import {
+  AiFillCheckCircle,
+  AiFillCloseCircle,
+  AiOutlineToTop,
+} from "react-icons/ai";
 
 function App() {
   const [todo, setTodo] = useState("");
   const [todos, setTodos] = useState([]);
   const refInput = useRef(null);
   const [myCounter, setMyCOunter] = useState(0);
-  let className = "item";
 
   const handleChange = (e) => {
     setTodo(e.target.value);
@@ -18,12 +21,25 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setTodos([...todos, { id: myCounter, todo: todo, isCompleted: false }]);
-    setTodo("");
-    setMyCOunter(myCounter + 1);
+    if (todo) {
+      setTodos([
+        ...todos,
+        { id: myCounter, todo: todo, isCompleted: false, myClass: "item" },
+      ]);
+      setTodo("");
+      setMyCOunter(myCounter + 1);
+    }
   };
 
-  const completeItem = (id) => {};
+  const completeItem = (id) => {
+    todos.map((item) => {
+      if (item.id === id) {
+        item.isCompleted = true;
+        item.myClass = "item-completed";
+      }
+      return item;
+    });
+  };
 
   const removeItem = (id) => {
     const newTodos = todos.filter((item) => {
@@ -56,20 +72,16 @@ function App() {
         </form>
         <ul className="my-list">
           {todos.map((item) => {
-            const { id, todo } = item;
+            const { id, todo, myClass, isCompleted } = item;
             return (
               <div key={id} className="list-item">
-                <li
-                  className={className}
-                  style={{ color: todo.isCompleted ? "green" : "black" }}>
-                  {todo}
-                </li>
+                <li className={myClass}>{todo}</li>
                 <span>
                   <button className="complete" onClick={() => completeItem(id)}>
-                    <AiFillCheckCircle />
+                    {isCompleted ? " " : <AiFillCheckCircle />}
                   </button>
                   <button className="remove" onClick={() => removeItem(id)}>
-                    <AiFillCloseCircle />
+                    {isCompleted ? " " : <AiFillCloseCircle />}
                   </button>
                 </span>
               </div>
